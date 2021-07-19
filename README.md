@@ -4,7 +4,3 @@ This repository contains the work in progress for the project __Detecting Social
 
 ## Objective
 This research aims to design a technological solution to interpret the socially occupied space automatically. 
-
-## Project Status
-
-Check the project goals in the Project tab.
