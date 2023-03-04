@@ -34,13 +34,9 @@ def process_data_orientation(type):
     dp.re_body_angle(data_kinect, type)
 
     # Data Analysis
-    # great = data_kinect['re_body_angle'] != 1
-    # data_kinect = data_kinect[great]
     dp.add_shoulder(data_kinect)
-
-
     
-    #data_kinect = data_kinect[(data_kinect['re_body_angle'] <-5) &  (data_kinect['re_body_angle'] >-85)]
+    # Remove samples with no complete shoulder orientations
     data_kinect = data_kinect[(data_kinect['re_body_angle'] != 1)]
 
     # Detecting Formations
@@ -48,18 +44,8 @@ def process_data_orientation(type):
     #fm.eval_formation(data_kinect, data_controlpoints, stop_time=1.0, stop_distance=0.10)
     #d.test_ani()
 
-
-    # pd.set_option('display.max_rows', None)
-    # pd.set_option('display.max_columns', None)
-    # pd.set_option('display.width', None)
-    # pd.set_option('display.max_colwidth', None)
-
     #Save the data
-    # print(data_kinect)
-
     #data_kinect.to_csv('data/csv/'+type+'_preanalysis_meeting_with.csv', decimal=',', sep=';', float_format='%.3f')
-
-
     da.base_analysis(data_kinect,type)
 
 
@@ -71,10 +57,6 @@ def process_data_orientation(type):
         d.display_2d_origin_global(data_kinect, data_controlpoints,'ID_subject').show()
         #d.display_body_direction(data_kinect, data_controlpoints).show()
         #d.display_aniTrajectory_simple(data_kinect,data_controlpoints).show()
-        #d.display_3d_origin_global(data_kinect,data_controlpoints ).show()
-        # d.display_3d(data_kinect)
-        #d.display_3d_origin(data_kinect).show()
         #d.display_control_points(data_controlpoints)
-
     pass
 
